@@ -10,6 +10,7 @@ import { DividerP, PaperTitulo, Texto } from "./MuiElements.js";
 import { amber, grey } from "@mui/material/colors";
 import { PoiForm } from "./Formulario.jsx";
 import ListaPoi from "./ListaPoi.jsx";
+import { Mapa } from "./Mapa.jsx";
 const drawerWidth = 500;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -104,9 +105,7 @@ export default function Prueba() {
             <ListaPoi />
           </Drawer>
           <Main open={open}>
-            <Texto variant="h1" sx={{ marginTop: 29 }}>
-              Prueba técnica
-            </Texto>
+            <Mapa/>
           </Main>
         </Box>
       </div>

@@ -1,4 +1,4 @@
-import { amber } from "@mui/material/colors";
+import { amber, red } from "@mui/material/colors";
 import {
   Button,
   InputBase,
@@ -19,7 +19,7 @@ export const ToolbarP = styled(Toolbar)({
   backgroundColor: amber[500],
 });
 export const AppbarP = styled(AppBar)({
-  position: "sticky",
+  position: 'fixed',
   color: "black",
   backgroundColor: amber[500],
 });
@@ -109,6 +109,19 @@ export const PaperListaP = styled(Paper)({
   }
 });
 
+export const DeleteBtn = styled(Button)({
+  background: red[700],
+  display: "flex",
+  width:0.2,
+  borderRadius: 5,
+  padding: 0,
+  color:"white",
+  fontSize:20,
+  alignContent:'center',
+  ":hover":{
+    background: red[800],
+  }
+});
 export const sxSelectStyle = {
   ":active": {
     color: "white",

@@ -6,7 +6,7 @@ export function addPoi(payload) {
     await axios.post(`http://localhost:3001/api/pois/addPoi/`, payload);
   };
 }
-export function deleteFavFilm(payload) {
+export function delPoi(payload) {
   return async function (dispatch) {
     try {
       await axios.delete(`http://localhost:3001/api/pois/delPoi`, payload);

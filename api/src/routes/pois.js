@@ -60,12 +60,11 @@ router.post("/addPoi", async (req, res, next) => {
 });
 
 router.delete("/delPoi", async (req, res, next) => {
-  const { descripcion, coordenadas } = req.body;
+  const { coordenadas } = req.body;
   try {
-    if (descripcion && coordenadas) {
+    if (coordenadas) {
       const elimPoi = await Poi.findOne({
         where: {
-          descripcion,
           coordenadas,
         },
       });

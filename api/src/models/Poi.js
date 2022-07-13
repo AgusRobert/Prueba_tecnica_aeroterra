@@ -29,7 +29,7 @@ module.exports = (sequelize) => {
         }
       },
       coordenadas: {
-        type: DataTypes.ARRAY(DataTypes.DECIMAL),
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull:false,
         validate: {
           is: /^((\-?|\+?)?\d+(\.\d+)?),\s*((\-?|\+?)?\d+(\.\d+)?)$/i,
