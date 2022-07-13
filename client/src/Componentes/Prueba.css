@@ -1,0 +1,10 @@
+.prueba {
+    background: rgb(255,173,50);
+    background: linear-gradient(0deg, rgba(255,173,50,0.9108018207282913) 0%, rgba(0,0,0,1) 14%, rgba(34,29,29,1) 25%, rgba(0,0,0,1) 76%);
+    color: rgb(255, 255, 255);
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+}
