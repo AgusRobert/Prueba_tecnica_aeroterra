@@ -9,6 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { DividerP, PaperTitulo, Texto } from "./MuiElements.js";
 import { amber, grey } from "@mui/material/colors";
 import { PoiForm } from "./Formulario.jsx";
+import ListaPoi from "./ListaPoi.jsx";
 const drawerWidth = 500;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -100,6 +101,7 @@ export default function Prueba() {
             <PaperTitulo>
               <Texto sx={{ fontSize: 40 }}>Lista de POI</Texto>
             </PaperTitulo>
+            <ListaPoi />
           </Drawer>
           <Main open={open}>
             <Texto variant="h1" sx={{ marginTop: 29 }}>

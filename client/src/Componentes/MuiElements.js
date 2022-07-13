@@ -93,7 +93,20 @@ export const PaperTitulo = styled(Paper)({
 export const PaperLista = styled(Paper)({
   background: amber[50],
   display: "inline-flex",
+  flexDirection:'column',
   borderRadius: 8,
+  marginTop:10,
+  overflow: 'auto'
+});
+export const PaperListaP = styled(Paper)({
+  background: amber[100],
+  display: "inline-flex",
+  borderRadius: 8,
+  flexDirection:'column',
+  alignContent:'center',
+  ":hover":{
+    background: amber[300],
+  }
 });
 
 export const sxSelectStyle = {

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { validacion } from "./validacion";
+import {  validacion } from "./validacion";
 import Swal from "sweetalert2";
 import {
   ButtonStyle,
@@ -13,6 +13,7 @@ import {
   TextoError,
 } from "./MuiElements";
 import { amber } from "@mui/material/colors";
+import { addPoi } from "../store/actions";
 
 export function PoiForm() {
   //para validacion de errores
@@ -40,11 +41,19 @@ export function PoiForm() {
       })
     );
   };
+  //update de coordenadas para pasarlas a un array en el submit
+  let coord = poiForm.coordenadas
+  useEffect(() => { 
+   coord = poiForm.coordenadas
+  }, [handleOnChange]);
   //manejador de envio del formulario
   const onSubmit = async (e) => {
     e.preventDefault();
-    const objResponse = {};
-    // dispatch(postPoi(poiForm));
+    let arrayCoord= coord.split(",");
+    poiForm.coordenadas = arrayCoord
+    arrayCoord.forEach(e => parseInt(e))
+    console.log("ACA",poiForm)
+    dispatch(addPoi(poiForm));
     setPoiForm({
       descripcion: "",
       direccion: "",
@@ -86,7 +95,7 @@ export function PoiForm() {
             required
           />
           {errores?.descripcion && (
-            <TextoError variant="h6" sx={{ color: "red" }}>
+            <TextoError variant="h7" sx={{ color: "red" }}>
               {errores.descripcion}
             </TextoError>
           )}
@@ -102,7 +111,7 @@ export function PoiForm() {
             required
           />
           {errores?.direccion && (
-            <TextoError variant="h6" sx={{ color: "red" }}>
+            <TextoError variant="h7" sx={{ color: "red" }}>
               {errores.direccion}
             </TextoError>
           )}
@@ -118,7 +127,7 @@ export function PoiForm() {
             onChange={(e) => handleOnChange(e)}
           />
           {errores?.telefono && (
-            <TextoError variant="h6" sx={{ color: "red" }}>
+            <TextoError variant="h7" sx={{ color: "red" }}>
               {errores.telefono}
             </TextoError>
           )}
@@ -135,7 +144,7 @@ export function PoiForm() {
             required
           />
           {errores?.coordenadas && (
-            <TextoError variant="h6" sx={{ color: "red" }}>
+            <TextoError variant="h7" sx={{ color: "red" }}>
               {errores.coordenadas}
             </TextoError>
           )}
@@ -150,6 +159,7 @@ export function PoiForm() {
             variant="outlined"
             size="small"
             sx={sxSelectStyle}
+            value = {poiForm.categoria}
             required
           >
             <MenuItemStyle hidden={true} disabled>
@@ -166,7 +176,7 @@ export function PoiForm() {
             </MenuItemStyle>
           </SelectStyle>
           {errores?.categoria && (
-            <TextoError variant="h6" sx={{ color: "red" }}>
+            <TextoError variant="h7" sx={{ color: "red" }}>
               {errores.categoria}
             </TextoError>
           )}
