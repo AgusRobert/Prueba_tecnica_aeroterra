@@ -1,7 +1,6 @@
 export const validacion = (input) => {
-  const RegExAlfa = /^[A-Za-z]+$/;
-  const RegExNum = /^[0-9]*$/;
-  const RegExInt = /^[-+]?[1-9]\d*$/;
+  const RegExDire = /(?=.*[a-zA-Z])(.*?\d){4,}/;
+  const RegExCoord =/^((\-?|\+?)?\d+(\.\d+)?),\s*((\-?|\+?)?\d+(\.\d+)?)$/;
   let errs = {
     block: false,
   };
@@ -24,8 +23,8 @@ export const validacion = (input) => {
           errs[p] = `Este campo no puede quedar sin completar`;
           errs.block = true;
         }
-        if (input[p] === "P") {
-          errs[p] = `Este campo es la direccion 2`;
+        if (!RegExDire.test(input[p])) {
+          errs[p] = `Una dirección debe llevar el nombre de su calle y su altura correspondiente`;
           errs.block = true;
         }
       }
@@ -43,6 +42,10 @@ export const validacion = (input) => {
       if (typeof input[p] === "string") {
         if (input[p] === "") {
           errs[p] = `Este campo no puede quedar sin completar`;
+          errs.block = true;
+        }
+        if (!RegExCoord.test(input[p])) {
+          errs[p] = `Las coordenadas son dos valores separados por una coma (,). La X: entre -180 y 180, la Y: entre -90 y 90. (X,Y)`;
           errs.block = true;
         }
       }
