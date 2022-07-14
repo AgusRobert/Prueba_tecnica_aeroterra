@@ -11,6 +11,7 @@ import { amber, grey } from "@mui/material/colors";
 import { PoiForm } from "./Formulario.jsx";
 import ListaPoi from "./ListaPoi.jsx";
 import { Mapa } from "./Mapa.jsx";
+import logo from '../utils/Aeroterra-Alta-Blanco.png'
 const drawerWidth = 500;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -78,14 +79,15 @@ export default function Prueba() {
               "& .MuiDrawer-paper": {
                 width: drawerWidth,
                 boxSizing: "border-box",
-                backgroundColor: grey[800],
+                backgroundColor: grey[900],
               },
             }}
             variant="persistent"
             anchor="left"
             open={open}
           >
-            <DrawerHeader>
+            <DrawerHeader sx={{alignItems:'center'}}>
+                <img  style={{width:320,height:70,marginRight:150}} src={logo} alt="logo"/>
               <IconButton onClick={handleDrawerClose}>
                 {theme.direction === "ltr" ? (
                   <ChevronLeftIcon />
@@ -104,7 +106,7 @@ export default function Prueba() {
             </PaperTitulo>
             <ListaPoi />
           </Drawer>
-          <Main open={open}>
+          <Main  open={open}>
             <Mapa/>
           </Main>
         </Box>

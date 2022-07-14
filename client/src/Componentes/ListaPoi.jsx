@@ -10,12 +10,11 @@ export default function ListaPoi(){
     let pois = useSelector((state) => state.pois);
     useEffect(() => {
         //Obtencion de los pois
+        
         dispatch(getPois());
-      }, [delPoi]);
-    //   useEffect(() => {
-    //     //Obtencion de los pois
-    //     dispatch(getPois());
-    //   }, [handleDelete]);
+
+      }, []);
+     
       const handleDelete=(e) => {
         dispatch(delPoi(e.target.value))
       }
