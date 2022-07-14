@@ -15,9 +15,6 @@ export default function ListaPoi(){
 
       }, []);
      
-      const handleDelete=(e) => {
-        dispatch(delPoi(e.target.value))
-      }
       return(
         <PaperLista>
            {pois.map(p =>{
@@ -26,7 +23,6 @@ export default function ListaPoi(){
                 <PaperListaP key={p.coordenadas}>
                     <Texto key={p.descripcion} variant="h6">{p.descripcion}</Texto>
                     <Texto  key={p.direccion} variant="h7">{p.direccion}</Texto>
-                    <DeleteBtn  onClick={handleDelete} value={p.coordenadas}>X</DeleteBtn>
                 </PaperListaP>
                 
                 <DividerP/>

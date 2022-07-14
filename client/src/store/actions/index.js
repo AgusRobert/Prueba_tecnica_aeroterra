@@ -24,7 +24,6 @@ export function getPois() {
   return async function (dispatch) {
     let json = await axios.get(`http://localhost:3001/api/pois/`);
     try{
-      console.log(json.data)
       return dispatch({
         type: GET_POI,
         payload: json.data,

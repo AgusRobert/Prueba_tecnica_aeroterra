@@ -52,7 +52,6 @@ export function PoiForm() {
     let arrayCoord= coord.split(",");
     poiForm.coordenadas = arrayCoord
     arrayCoord.forEach(e => parseInt(e))
-    console.log("ACA",poiForm)
     dispatch(addPoi(poiForm));
     setPoiForm({
       descripcion: "",
